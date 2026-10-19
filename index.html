@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cryostasis — Cold Storage</title>
+  <meta name="description" content="Institutional-grade cold storage security. Assets held offline, encrypted, and untouched until you need them.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body>
+
+  <!-- ================= NAV ================= -->
+  <header class="nav">
+    <span class="corner tl"></span><span class="corner bl"></span>
+    <span class="corner tr"></span><span class="corner br"></span>
+
+    <a href="#" class="logo" aria-label="Cryostasis">
+      <svg viewBox="0 0 32 32" fill="#0a0a0a" aria-hidden="true">
+        <path d="M4 4h24v4H4z"/>
+        <path d="M4 10h10l2 3 2-3h10v4H4z"/>
+        <path d="M6 16h20v4H6z"/>
+        <path d="M9 22h14l-3 4h-8z"/>
+      </svg>
+    </a>
+
+    <nav class="nav-links">
+      <a href="#product">Product</a>
+      <a href="#security">Security</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#docs">Docs</a>
+    </nav>
+
+    <a href="#pricing" class="btn btn-primary">Let's Talk</a>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero-wrap" id="top">
+    <div class="hero" id="hero">
+
+      <h1 class="hero-title" id="title">
+        <span class="line"><span class="w">YOUR</span> <span class="w">ASSETS,</span></span>
+        <span class="line"><span class="w">FROZEN</span> <span class="w">IN</span> <span class="w">TIME</span></span>
+      </h1>
+
+      <canvas id="gl" aria-hidden="true"></canvas>
+
+      <div class="hero-ui">
+        <div class="meta hide-sm" style="left:20px; top:68px;">Cold storage<br>&nbsp;&nbsp;//cryostasis</div>
+        <div class="meta right hide-sm" style="right:20px; top:68px;">Node status<br>//secured</div>
+        <div class="snow" aria-hidden="true">❄❄❄❄</div>
+
+        <span class="tag hide-sm" style="right:20px; top:24.5%;">Vault: 0x4F9A</span>
+        <span class="tag hide-sm" style="left:18px; top:43%;">Lock: engaged</span>
+        <span class="tag hide-sm" style="left:85%; top:47%;">Immutable</span>
+        <span class="tag hide-sm" style="left:69.5%; top:64%;">Coord: [redacted]</span>
+        <span class="tag hide-sm" style="left:16.5%; top:80.5%;">Node: active</span>
+        <span class="tag hide-sm" style="left:18px; top:79%;">Audit: passed</span>
+
+        <div class="vertical" aria-hidden="true">
+          <span>C</span><span>R</span><span>Y</span><span>O</span><span>S</span><span>T</span><span>A</span><span>S</span><span>I</span><span>S</span>
+        </div>
+
+        <div class="hero-copy">
+          <p>Institutional-grade cold storage security. Assets held offline, encrypted, and untouched until you need them.</p>
+          <div class="actions">
+            <a href="#pricing" class="btn btn-primary">Secure Now →</a>
+            <a href="#product" class="btn">How It Works</a>
+          </div>
+        </div>
+
+        <aside class="custody" aria-label="Proof of custody">
+          <span class="corner tl"></span><span class="corner tr"></span>
+          <span class="corner bl"></span><span class="corner brc"></span>
+
+          <div class="custody-head">
+            <h4>[PROOF OF CUSTODY]</h4>
+            <svg width="18" height="14" viewBox="0 0 18 14" fill="#0a0a0a" aria-hidden="true">
+              <rect x="0" y="0" width="5" height="5"/><rect x="7" y="2" width="5" height="5"/><rect x="3" y="8" width="5" height="5"/>
+            </svg>
+            <span class="arrow">↗</span>
+          </div>
+
+          <div class="custody-body">
+            <div>
+              0x4F9A2C1D<br>-40°C<br>AES-256<br>Verified<br>Offline status: OK
+            </div>
+            <svg class="glyph" viewBox="0 0 22 22" fill="#9a9a9a" aria-hidden="true">
+              <rect x="8" y="0" width="6" height="22"/><rect x="0" y="8" width="22" height="6"/>
+              <rect x="10" y="10" width="2" height="2" fill="#f4f4f2"/>
+            </svg>
+            <svg class="qr" id="qr" viewBox="0 0 25 25" shape-rendering="crispEdges" aria-hidden="true"></svg>
+            <div class="r">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="#9a9a9a" style="margin-left:auto; display:block; margin-bottom:6px" aria-hidden="true">
+                <rect x="6" y="0" width="6" height="6"/><rect x="0" y="6" width="6" height="6"/><rect x="12" y="6" width="6" height="6"/><rect x="6" y="12" width="6" height="6"/>
+              </svg>
+              Queue: 0<br>Retry: 0x02<br>Seed: 4F9A<br>Cipher_OK<br>Drift: <span id="drift">0.001</span>
+            </div>
+          </div>
+
+          <div class="custody-foot">
+            <svg width="76" height="20" viewBox="0 0 76 20" aria-hidden="true">
+              <g fill="#8d8d8d">
+                <path d="M2 18 L10 2 H16 L8 18Z"/><path d="M14 18 L22 2 H28 L20 18Z"/><path d="M26 18 L34 2 H40 L32 18Z"/>
+                <path d="M38 18 L46 2 H52 L44 18Z"/><path d="M50 18 L58 2 H64 L56 18Z"/><path d="M62 18 L70 2 H74 L68 18Z"/>
+              </g>
+            </svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="#8d8d8d" aria-hidden="true">
+              <circle cx="3" cy="3" r="2"/><circle cx="8" cy="3" r="2"/><circle cx="13" cy="8" r="2"/><circle cx="3" cy="13" r="2"/><circle cx="8" cy="8" r="2"/>
+            </svg>
+            <svg width="56" height="22" viewBox="0 0 56 22" fill="none" stroke="#6f6f6f" stroke-width="1" aria-hidden="true">
+              <ellipse cx="28" cy="11" rx="26" ry="10"/><ellipse cx="28" cy="11" rx="14" ry="10"/><ellipse cx="28" cy="11" rx="4" ry="10"/>
+              <path d="M2 11h52M6 5h44M6 17h44"/>
+            </svg>
+          </div>
+        </aside>
+
+        <div class="scroll-hint">SCROLL ↓</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRODUCT ================= -->
+  <section class="section" id="product">
+    <div class="section-label">[01] // PRODUCT</div>
+    <h2>Deep freeze for digital value.</h2>
+    <div class="grid grid-3">
+      <div class="cell">
+        <div class="idx">01 — ISOLATE</div>
+        <h3>Air-gapped vaults</h3>
+        <p>Private keys are generated and stored on hardware that has never touched a network. Ever.</p>
+      </div>
+      <div class="cell">
+        <div class="idx">02 — ENCRYPT</div>
+        <h3>AES-256 + Shamir</h3>
+        <p>Keys are sharded across geographically separated sites. No single point of compromise.</p>
+      </div>
+      <div class="cell">
+        <div class="idx">03 — THAW</div>
+        <h3>Quorum withdrawal</h3>
+        <p>Multi-party approval with time-locks. Assets return to circulation only when you decide.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SECURITY ================= -->
+  <section class="section" id="security">
+    <div class="section-label">[02] // SECURITY</div>
+    <h2>Immutable by design.</h2>
+    <div class="grid grid-4">
+      <div class="cell"><div class="idx">UPTIME</div><div class="stat">99.999%</div><p>Vault availability since genesis.</p></div>
+      <div class="cell"><div class="idx">TEMP</div><div class="stat">-40°C</div><p>Climate-sealed storage chambers.</p></div>
+      <div class="cell"><div class="idx">AUDITS</div><div class="stat">SOC 2</div><p>Type II, independently verified.</p></div>
+      <div class="cell"><div class="idx">BREACHES</div><div class="stat">0</div><p>Zero incidents. Zero exceptions.</p></div>
+    </div>
+  </section>
+
+  <!-- ================= PRICING ================= -->
+  <section class="section" id="pricing">
+    <div class="section-label">[03] // PRICING</div>
+    <h2>Pick your temperature.</h2>
+    <div class="grid grid-3">
+      <div class="cell">
+        <div class="idx">CHILL</div>
+        <div class="price">0.15% <small>/ yr AUC</small></div>
+        <p>For funds starting their custody journey.</p>
+        <ul><li>Single-region vault</li><li>2-of-3 quorum</li><li>48h withdrawal</li></ul>
+        <a href="#" class="btn">Start →</a>
+      </div>
+      <div class="cell featured">
+        <div class="idx">FROST</div>
+        <div class="price">0.10% <small>/ yr AUC</small></div>
+        <p>For institutions moving serious volume.</p>
+        <ul><li>Multi-region shards</li><li>3-of-5 quorum</li><li>12h withdrawal</li><li>Dedicated custodian</li></ul>
+        <a href="#" class="btn btn-primary">Secure Now →</a>
+      </div>
+      <div class="cell">
+        <div class="idx">ABSOLUTE ZERO</div>
+        <div class="price">Custom</div>
+        <p>Bespoke vault architecture and SLAs.</p>
+        <ul><li>Private vault</li><li>Custom quorum</li><li>On-site audits</li></ul>
+        <a href="#" class="btn">Let's Talk →</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" id="docs">
+    <div class="big">STAY FROZEN.</div>
+    <div class="row">
+      <span>© 2026 CRYOSTASIS // COLD STORAGE</span>
+      <span>NODE STATUS: SECURED</span>
+      <span>DOCS · STATUS · LEGAL</span>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>
